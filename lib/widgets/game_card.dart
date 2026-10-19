@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../main.dart';
+import '../main.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({super.key, required this.game, required this.onTap});

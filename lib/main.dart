@@ -1,28 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/colors.dart';
+import 'core/colors.dart';
+import 'core/theme.dart';
+import 'model/game.dart'
 
 void main() => runApp(const LabHarness());
-
-class GameProgress {
-  const GameProgress({
-    required this.title,
-    required this.currentProgress,
-    required this.completedObjectives,
-    required this.totalObjectives,
-  });
-
-  final String title;
-  final String currentProgress;
-  final int completedObjectives;
-  final int totalObjectives;
-
-  double get progress {
-    if (totalObjectives == 0) return 0;
-    return completedObjectives / totalObjectives;
-  }
-}
 
 const List<GameProgress> kNormalGames = [
   GameProgress(

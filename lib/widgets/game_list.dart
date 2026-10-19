@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../main.dart';
+import '../main.dart';
 
 class GameList extends StatelessWidget {
   const GameList({super.key, required this.games, required this.onGameTap});
