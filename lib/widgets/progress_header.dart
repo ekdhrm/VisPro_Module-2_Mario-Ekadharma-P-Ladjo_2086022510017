@@ -5,15 +5,20 @@ class ProgressHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Game Progress',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          'Track Your Games',
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
         ),
-        SizedBox(height: 4),
-        Text('Keep track of where you left off.'),
+        const SizedBox(height: 4),
+        Text(
+          'Keep track of where you left off.',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ],
     );
   }

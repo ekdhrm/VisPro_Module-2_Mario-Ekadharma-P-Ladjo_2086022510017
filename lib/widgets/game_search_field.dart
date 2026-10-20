@@ -15,10 +15,19 @@ class GameSearchField extends StatelessWidget {
     return TextField(
       controller: controller,
       onChanged: onChanged,
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         hintText: 'Search games...',
-        prefixIcon: Icon(Icons.search),
-        border: OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.search),
+        suffixIcon: controller.text.isEmpty
+            ? null
+            : IconButton(
+                onPressed: () {
+                  controller.clear();
+                  onChanged('');
+                },
+                icon: const Icon(Icons.clear),
+              ),
+        border: const OutlineInputBorder(),
       ),
     );
   }

@@ -12,9 +12,24 @@ class ProgressSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [Text('$gameCount games'), Text('$objectiveCount objectives')],
+    return Card(
+      margin: EdgeInsets.zero,
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '$gameCount games',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Text(
+              '$objectiveCount objectives',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
