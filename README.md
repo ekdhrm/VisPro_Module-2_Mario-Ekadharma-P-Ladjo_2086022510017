@@ -41,4 +41,4 @@ The four sample games are written only on the very first launch. Clear app data 
 
 ## Notes
 - `android/gradle.properties` disables Kotlin incremental compilation because this project and the pub cache are on different Windows drives. Remove that line on a normal setup if you prefer.
-- prefered to run with flutter run -d chrome --web-port=8080 --web-browser-flag="--user-data-dir=C:\Users\Hers\AppData\Local\FlutterChromeProfile" if you use chrome
+- prefered to run with flutter run -d chrome --web-port=8080 --web-browser-flag="--user-data-dir=C:\Users\Hers\AppData\Local\FlutterChromeProfile" when i use chrome
