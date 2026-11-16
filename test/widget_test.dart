@@ -1,30 +1,30 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:game_progression_track/app.dart';
 
-import 'package:game_progression_track/main.dart';
+import 'helpers/fake_game_repository.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const GameProgressApp());
+  testWidgets('shows the empty state on first launch', (tester) async {
+    await tester.pumpWidget(GameProgressApp(repository: FakeGameRepository()));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('GAME PROGRESS'), findsOneWidget);
+    expect(
+      find.text('No games yet. Tap + to add your first game.'),
+      findsOneWidget,
+    );
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  testWidgets('the add button opens the add game form', (tester) async {
+    await tester.pumpWidget(GameProgressApp(repository: FakeGameRepository()));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    await tester.tap(find.byTooltip('Add game'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('ADD GAME'), findsOneWidget);
+    expect(find.text('SAVE GAME'), findsOneWidget);
+    expect(find.text('TAGS (COMMA SEPARATED)'), findsOneWidget);
+    expect(find.text('IMAGE URL (OPTIONAL)'), findsOneWidget);
   });
 }
